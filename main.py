@@ -26,7 +26,7 @@ class Seed:
     def _parse_csv(self):
         self.data = []
         for index, record in enumerate(self.records):
-            item = self._item_schema(index, record)
+            item = self._item_schema(index + 1, record)
             self.data.append(item)
 
     def to_json(self):
