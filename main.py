@@ -19,14 +19,14 @@ class Seed:
         parser.add_argument("--json", help="file name of json to output")
         return parser.parse_args()
 
-    def _item_schema(self, index, record):
-        item = {"model": self.model, "pk": index, "fields": record}
+    def _item_schema(self, record):
+        item = {"model": self.model, "fields": record}
         return item
 
     def _parse_csv(self):
         self.data = []
-        for index, record in enumerate(self.records):
-            item = self._item_schema(index, record)
+        for record in self.records:
+            item = self._item_schema(record)
             self.data.append(item)
 
     def to_json(self):
